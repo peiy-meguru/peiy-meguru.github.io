@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import '../styles/animations.css';
+import '../styles/header.css';
+import '../styles/responsive.css';
+import '../styles/footer.css';
+import '../styles/skin-menu.css';
+import '../styles/post-card.css';
+import '../styles/content-single.css';
+import '../styles/sakura-theme.css';
+import '../styles/dark-mode.css';
+import '../styles/search.css';
+import '../styles/highlight.css';
+import '../styles/toc.css';
+import '../styles/mobile-nav.css';
+import '../styles/theme-bg.css';
+import '../styles/aplayer.css';
+import '../styles/music-player.css';
+import '../styles/featured.css';
+import '../styles/streaming-display.css';
+import siteData from '../data/site.json';
+import { withBase } from '../utils/url';
+const base = import.meta.env.BASE_URL;
+const faviconUrl = withBase(siteData.favicon || '/favicon.ico', base);
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="theme-color" content="#ffffff" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="icon" type="image/x-icon" href={faviconUrl} />
+
+<meta name="description" content={siteData.description} />
+
+<script is:inline set:html={`window.SAKURA_BASE = "${base}";
+  window.SLIDESHOW_IMAGES = ["01.jpg"];
+  (function() {
+    const mode = localStorage.getItem('theme_mode') || 'system';
+    let isDark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isDark) {
+      document.documentElement.classList.add('theme-dark');
+      document.documentElement.style.background = '#31363b';
+    }
+  })();`}>
+</script>
+
+<style is:inline set:html={`
+  :root {
+    --img-scroll: url('${base}images/hero/scroll.png');
+  }
+`}>
+</style>
+
+<link rel="stylesheet" href={withBase("/fontawesome/all.min.css", base)} />
+<link rel="stylesheet" href={withBase("/fontawesome/v4-shims.min.css", base)} />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href={withBase("/fonts/lxgw-wenkai/style.css", base)} />
+<link rel="stylesheet" href={withBase("/fonts/lxgw-neoxihei/style.css", base)} />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/baguettebox.js@1.12.0/dist/baguetteBox.min.css" />

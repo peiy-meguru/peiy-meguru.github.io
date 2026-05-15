@@ -1,0 +1,747 @@
+/* ===== Site Header ===== */
+.site-header {
+  width: 100%;
+  height: 75px;
+  background: transparent;
+  transition: all .4s ease;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+}
+
+.yya {
+  position: fixed;
+  left: 0;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .5);
+}
+
+/* Scroll during video: un-narrow header */
+.site-header.video-active.yya {
+  height: 75px;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .5);
+}
+.site-header.video-active.yya .site-top {
+  height: 75px;
+}
+.site-header.video-active.yya .site-branding {
+  display: flex;
+}
+.site-header.video-active.yya .searchbox {
+  display: block;
+}
+.site-header.video-active.yya .site-title a {
+  color: #464646;
+}
+.site-header.video-active.yya .site-top ul li a {
+  color: #666;
+}
+.site-header.video-active.yya .site-top ul li a:hover {
+  color: orange;
+  font-weight: normal;
+}
+.site-header.video-active.yya .site-top ul li a:after {
+  display: block;
+}
+
+.gizle {
+  top: -100px;
+  z-index: 9999;
+}
+
+.site-header:hover {
+  background-color: #fff;
+}
+/* Nav bar during video playback — matches headertop narrowed 75px height */
+.site-header.video-active {
+  background: rgba(0, 0, 0, .85);
+  box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .5);
+  height: 40px;
+}
+.site-header.video-active .site-top {
+  height: 40px;
+}
+.site-header.video-active .site-branding {
+  display: none;
+}
+.site-header.video-active:hover {
+  background: rgba(0, 0, 0, .9);
+}
+.site-header.video-active .site-title a {
+  color: #fff;
+}
+.site-header.video-active .searchbox i {
+  color: #ccc;
+}
+.site-header.video-active .site-top ul li a {
+  color: #ccc;
+  padding: 4px 0;
+}
+.site-header.video-active .site-top ul li a:after {
+  display: none;
+}
+.site-header.video-active .site-top ul li a:hover {
+  font-weight: bold;
+  color: #fff;
+}
+.site-header.video-active .searchbox {
+  display: none;
+}
+.site-header.video-active #show-nav {
+  display: none;
+}
+.site-header.video-active #show-nav .line {
+  background: #ccc;
+}
+
+.sabit {
+  top: 0;
+  z-index: 9999;
+}
+
+/* ===== Site Top Bar ===== */
+.site-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-branding {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 75px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.site-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.site-title a {
+  color: #464646;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+.site-title a:hover {
+  color: orange;
+}
+.site-title .site-logo {
+  height: 40px;
+  width: auto;
+  opacity: .75;
+  transition: opacity .2s ease-out, transform .6s ease;
+}
+.site-title .site-logo:hover {
+  opacity: 1;
+  transform: rotate(360deg);
+}
+
+.site-description {
+  float: right;
+}
+
+/* ===== Navigation ===== */
+.searchbox {
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+  padding: 0 10px;
+}
+
+.searchbox i {
+  color: #888;
+  font-size: 20px;
+}
+.searchbox i:hover {
+  color: orange;
+}
+
+.site-top .lower {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  font-size: 16px;
+}
+
+.site-top .lower nav {
+  display: inline-block;
+  animation: searchbox .2s;
+}
+
+.site-top ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.site-top ul li {
+  position: relative;
+}
+
+.site-top ul li a {
+  padding: 10px 0;
+  display: inline-block;
+  color: #666;
+}
+
+.site-top ul li a:hover {
+  color: orange;
+}
+
+.site-top ul li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -16px;
+  height: 6px;
+  background-color: #FE9600;
+  width: 100%;
+  max-width: 0;
+  transition: max-width .25s ease-in-out;
+}
+
+.site-top ul li ul li a:after {
+  display: none;
+}
+
+.site-top ul li a:hover:after {
+  max-width: 100%;
+}
+
+.site-top ul li {
+  position: relative;
+}
+
+/* ===== Dropdown submenu ===== */
+.lower li ul {
+  display: none;
+  opacity: 1;
+  position: absolute;
+  background: #fff;
+  padding: 10px;
+  top: 46px;
+  right: -13px;
+  min-width: 80px;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 9999;
+  border-radius: 5px;
+  box-shadow: 0 1px 40px -8px rgba(0, 0, 0, .5);
+  animation: fadeInUp .3s .1s ease both;
+}
+
+.lower li ul::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.lower li:hover ul {
+  display: inline-block;
+  transition: all .4s;
+}
+
+.lower li ul li {
+  width: 100%;
+  margin: 0;
+}
+
+.site-top .menu-item-has-children li a {
+  font-size: 14px;
+  padding: 8px 18px;
+  text-transform: none;
+  color: #545454;
+}
+
+/* ===== Hamburger Menu ===== */
+#show-nav {
+  position: relative;
+  float: right;
+  margin-left: 20px;
+  display: block;
+  width: 30px;
+  height: 33px;
+  margin-top: 4.5px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#show-nav .line {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 28px;
+  margin-left: -15px;
+  height: 2px;
+  background: #666;
+  transition: all .2s ease;
+}
+
+#show-nav.showNav .line1 {
+  top: 16px;
+}
+
+#show-nav.showNav .line3 {
+  top: 25px;
+}
+
+#show-nav.hideNav .line1 {
+  top: 16px;
+  transform: rotateZ(45deg);
+}
+
+#show-nav.hideNav .line2 {
+  opacity: 0;
+}
+
+#show-nav.hideNav .line3 {
+  top: 16px;
+  transform: rotateZ(-45deg);
+}
+
+/* ===== Hero / Focus Area ===== */
+.headertop {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  transition: height 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.headertop::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url('/images/patterns/dot.gif');
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* --- Center background image --- */
+#centerbg {
+  position: static;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* --- Banner Placeholder (black, same size as image) --- */
+.banner-placeholder {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* --- Video Stage (below headertop) --- */
+.video-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  background: #000;
+  transition: max-height 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+  opacity: 0;
+}
+
+.video-stage-inner {
+  position: relative;
+  padding-bottom: 56.25%;
+  width: 100%;
+  max-width: calc((100vh - 40px) * 16 / 9);
+  margin: 0 auto;
+  background: #000;
+}
+.video-stage-inner video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+
+.headertop.playing + .video-stage {
+  max-height: calc(100vh - 40px);
+  opacity: 1;
+}
+
+/* --- Video Progress Bar --- */
+.video-progress {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: calc((100vh - 40px) * 16 / 9);
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  z-index: 102;
+  transition: height 0.15s ease;
+}
+.video-progress:hover {
+  height: 8px;
+}
+.video-progress-filled {
+  height: 100%;
+  background: #E67474;
+  width: 0%;
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
+/* --- Playing state --- */
+.headertop.playing {
+  padding-bottom: 0;
+  height: 40px;
+  background: #000;
+}
+.headertop.playing #centerbg {
+  transform: translateY(calc(-100% - 30px));
+  opacity: 0;
+}
+.headertop.playing .focusinfo {
+  opacity: 0;
+  pointer-events: none;
+  
+  font-family: 'Ubuntu'!important;
+}
+.headertop.playing .banner-placeholder {
+  opacity: 1;
+}
+
+
+/* --- Focusinfo / Banner --- */
+.focusinfo {
+  position: relative;
+  max-width: 800px;
+  padding: 0 10px;
+  top: 49.3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 99;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.center-text {
+  color: #fff;
+  font-size: 80px;
+  font-weight: 700;
+  margin: auto;
+  font-family: 'Ubuntu', sans-serif;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+}
+
+body.serif .center-text {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.header-info {
+  width: 63%;
+  margin: auto;
+  margin-top: 22px;
+  font-size: 16px;
+  color: #EAEADF;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  letter-spacing: 0;
+  line-height: 30px;
+  border-radius: 10px;
+  box-sizing: initial;
+  white-space: nowrap;
+  position: relative;
+}
+
+.header-info::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: 20%;
+  margin-left: -15px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, .5) transparent;
+}
+
+.header-info p {
+  margin: 0;
+  font-family: 'Ubuntu';
+  font-weight: 700;
+  color: #EAEADF;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+/* --- Hero bar: github + play center + links right --- */
+.hero-bar {
+  height: 32px;
+  margin-bottom: -15px;
+  margin-left: 10px;
+  list-style: none;
+  display: inline-block;
+}
+
+.hero-bar li {
+  float: left;
+  margin-right: 13px;
+}
+
+.hero-bar a {
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s, transform 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.hero-bar a:hover {
+  color: orange;
+  transform: scale(1.2);
+}
+
+.hero-bar a svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-bar-center {
+  display: inline-block;
+  float: left;
+  margin-right: 13px;
+}
+
+.hero-bar-play {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.9;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.hero-bar-play:hover {
+  background: rgba(230, 116, 116, 0.8);
+  transform: scale(1.15);
+}
+
+.hero-bar-play.video-pause {
+  background: rgba(230, 116, 116, 0.7);
+}
+
+/* --- Waves --- */
+/* --- Wave Animation ---
+   Using background-position-x instead of transform for seamless looping.
+   repeat-x tiles the image; shifting by exactly one image width creates
+   a perfect infinite scroll with no visible seam.
+   Image widths: wave1.png = 997px, wave2.png = 1009px. --- */
+@keyframes wave1_scroll {
+  to { background-position-x: -997px; }
+}
+
+@keyframes wave2_scroll {
+  to { background-position-x: -1009px; }
+}
+
+#banner_wave_1 {
+  height: 65px;
+  background: url("/images/hero/wave1.png") repeat-x;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  opacity: 1;
+  transition: opacity 0.4s ease, bottom 0.4s ease;
+  animation: wave1_scroll 10s linear infinite;
+}
+
+#banner_wave_2 {
+  height: 80px;
+  background: url("/images/hero/wave2.png") repeat-x;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  z-index: 4;
+  opacity: 1;
+  transition: opacity 0.4s ease, bottom 0.4s ease;
+  animation: wave2_scroll 15s linear infinite;
+}
+
+/* Hide waves when video is playing */
+.headertop.playing #banner_wave_1,
+.headertop.playing #banner_wave_2 {
+  opacity: 0;
+  bottom: -999px;
+}
+
+.banner_wave_hide,
+.banner_wave_hide_fit_skin {
+  opacity: 0 !important;
+  bottom: -999px !important;
+}
+
+/* --- Headertop down arrow --- */
+.headertop-down {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  cursor: pointer;
+  z-index: 5;
+  transform: translateX(-50%);
+}
+
+.headertop-down i {
+  font-size: 28px;
+  color: #fff;
+  transform: scale(1.5, 1);
+  display: block;
+}
+
+/* --- Wave SVG (keep for fallback but hide when waves loaded) --- */
+.wave-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 2;
+}
+
+/* ===== Glitch Text ===== */
+.glitch {
+  position: relative;
+  color: #fff;
+}
+
+.glitch:before,
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch:before {
+  left: -1px;
+  text-shadow: 1px 0 #ff3f1a;
+}
+
+.glitch:after {
+  left: 1px;
+  text-shadow: -1px 0 #00a7e0;
+}
+
+.glitch:hover:before {
+  text-shadow: 4px 0 #ff3f1a;
+  animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse;
+}
+
+.glitch:hover:after {
+  text-shadow: -5px 0 #00a7e0;
+  animation: glitch-loop-2 0.8s infinite ease-in-out alternate-reverse;
+}
+
+/* Nav hide/show on homepage */
+.is-homepage .site-header {
+  transform: translateY(-100%);
+}
+
+.is-homepage .site-header.is-visible {
+  transform: translateY(0);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* ===== Mobile hero ===== */
+@media (max-width: 640px) {
+  .headertop {
+    height: 75vw;
+  }
+  /* Disable fixed background on mobile to prevent iOS/Safari zoom bug */
+  #centerbg {
+    background-attachment: scroll;
+  }
+  .center-text {
+    font-size: 36px;
+  }
+  .header-info p {
+    font-size: 14px;
+  }
+
+  /* Video nav: show nav links inline when playing */
+  .site-header.video-active .lower nav {
+    display: inline-block;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+  .site-header.video-active .lower nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+  .site-header.video-active .lower nav ul li {
+    margin-bottom: 0;
+  }
+
+  .site-header.video-active.yya .lower nav {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+  .site-header.video-active.yya .lower nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+}

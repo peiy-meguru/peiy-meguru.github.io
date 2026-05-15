@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data/site.json';
+---
+
+<BaseLayout title={`关于 - ${siteData.name}`}>
+  <article class="page">
+    <header class="entry-header">
+      <h1 class="page-title mb-">关于</h1>
+    </header>
+
+    <div class="entry-content">
+      <p>欢迎来到 {siteData.name}。</p>
+      <p>{siteData.author_description}</p>
+
+      <h3>关于本站</h3>
+      <p>这是一个使用 <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> 重构的 Sakura 主题静态博客。原主题由 Mashiro 设计开发。</p>
+
+      <h3>联系</h3>
+      <ul>
+        <li>GitHub: <a href={siteData.social.github} target="_blank" rel="noopener">{siteData.social.github}</a></li>
+      </ul>
+
+      <h3>技术栈</h3>
+      <ul>
+        <li>Astro - 静态站点生成器</li>
+        <li>Vanilla JavaScript - 无 jQuery 依赖</li>
+        <li>CSS3 动画</li>
+        <li>GitHub Pages 部署</li>
+      </ul>
+    </div>
+  </article>
+</BaseLayout>

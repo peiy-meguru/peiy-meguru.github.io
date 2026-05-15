@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+import siteData from '../data/site.json';
+import { resolveImage } from '../utils/image';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const groupedByYear: Record<string, typeof posts> = {};
+posts.forEach(post => {
+  const year = post.data.date.getFullYear().toString();
+  if (!groupedByYear[year]) groupedByYear[year] = [];
+  groupedByYear[year].push(post);
+});
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title={`归档 - ${siteData.name}`}
+  coverImage={resolveImage(siteData.cover?.default_image || 'images/random/d-1.jpg', base, 'images/random/d-1.jpg').src}
+>
+  {
+    Object.entries(groupedByYear)
+      .sort(([a], [b]) => parseInt(b) - parseInt(a))
+      .map(([year, yearPosts]) => (
+        <section class="archives">
+          <h2 class="archive-year">{year}</h2>
+          {yearPosts.map(post => (
+            <PostCard
+              title={post.data.title}
+              slug={post.id}
+              date={post.data.date.toISOString()}
+              description={post.data.description}
+              cover={post.data.cover}
+              sticky={post.data.sticky}
+            />
+          ))}
+        </section>
+      ))
+  }
+</BaseLayout>

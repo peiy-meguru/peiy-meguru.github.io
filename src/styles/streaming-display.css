@@ -1,0 +1,61 @@
+/* src/styles/streaming-display.css */
+/* ===== Global Streaming Display Utilities ===== */
+
+/* Image lazy-loading fade-in */
+img[data-src] {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+img[data-src].loaded {
+  opacity: 1;
+}
+
+/* Hero background image placeholder */
+#centerbg {
+  background-color: #000;
+}
+
+/* Featured section — images load via src, opacity managed by stagger animation on parent li */
+.feature-content li {
+  background-color: #f0f0f0;
+}
+
+/* Video skeleton placeholder */
+.video-stage {
+  background-color: #000;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a2e;
+  z-index: 1;
+}
+
+.video-placeholder .skeleton-pulse {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.1);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Reduced motion: instant transitions */
+@media (prefers-reduced-motion: reduce) {
+  .img-main,
+  .img-placeholder,
+  img[data-src],
+  .feature-content li img {
+    transition-duration: 0.01s !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,343 @@
+.dsc-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 0;
+  border-bottom: 1px dashed #ECECEC;
+}
+
+/* ===== Post List Thumb (reference site float layout) ===== */
+.post-list-thumb {
+  float: left;
+  width: 100%;
+  position: relative;
+  margin: 20px 0 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 1px 20px -6px rgba(0,0,0,.5);
+  opacity: 0;
+  transition: box-shadow 0.3s ease;
+}
+
+@media (min-width: 641px) {
+  .post-list-thumb {
+    height: 300px;
+  }
+}
+
+.post-list-thumb:hover {
+  box-shadow: 0 5px 10px 5px rgba(110,110,110,.4);
+}
+
+.post-list-thumb i {
+  margin-right: 5px;
+  color: #989898;
+  font-size: 14px;
+}
+
+.post-list-thumb a {
+  color: #504E4E;
+}
+
+/* Date and meta */
+.post-date,
+.post-meta,
+.post-meta a {
+  color: #888;
+  font-size: 12px;
+}
+
+.comments-number {
+  margin: 0 10px;
+}
+
+/* Post title — match reference site h3 defaults */
+.post-list-thumb .post-title {
+  display: inline;
+  margin: 0;
+}
+
+.post-list-thumb .post-title h3 {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-wrap: break-word;
+  color: rgb(80, 78, 78);
+  transition: color 0.2s ease-out, border 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.post-title:hover h3 {
+  color: orange;
+}
+
+/* Thumbnail */
+.post-thumb {
+  float: right;
+  width: 55%;
+}
+
+.post-thumb a {
+  height: 300px;
+  position: relative;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 0 10px 10px 0;
+}
+
+.post-thumb a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: all 0.6s;
+}
+
+.post-list-thumb:hover .post-thumb a img {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Content wrap */
+.post-content-wrap {
+  position: relative;
+  display: inline-block;
+  float: right;
+  padding-right: 30px;
+  padding-left: 0;
+  width: 40%;
+  margin: 20px 10px 0 10px;
+}
+
+/* Flex column to fill card height (300px) minus top margin (20px) */
+.post-content {
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+}
+
+.post-content > .float-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 15px;/* 有元信息时post-meta还会额外占用20px*/
+}
+
+.post-content > .float-content p {
+  flex-shrink: 0;
+}
+
+.post-content > .float-content .post-bottom {
+  margin-top: auto;
+}
+
+.float-content {
+  position: relative;
+  width: 100%;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 50;
+  color: rgba(0, 0, 0, .66);
+}
+
+.float-content .post-text {
+  display: inline-block;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.float-content p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  height: 67.5px;
+  overflow: hidden;
+  margin: 15px 0 22.5px;
+}
+
+/* Post bottom button —— inherits textAlign from .post-content-wrap:
+   normal card → left, left card → right (the icon hugs the far edge) */
+.post-bottom {
+  margin: 0;
+}
+
+.post-list-thumb-left .post-bottom {
+  text-align: right;
+}
+
+.button-normal {
+  display: inline;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.button-normal i {
+  font-size: 25px;
+  display: inline;
+  line-height: 1.5;
+  color: #666;
+}
+
+.button-normal:hover {
+  color: orange;
+}
+
+/* Odd/Even alternation */
+.post-list-thumb-left .post-content-wrap {
+  float: left;
+  padding-left: 30px;
+  padding-right: 0;
+  text-align: right;
+  margin: 20px 10px 10px 0;
+}
+
+.post-list-thumb-left .post-thumb {
+  float: left;
+}
+
+.post-list-thumb-left .post-thumb a {
+  border-radius: 10px 0 0 10px;
+}
+
+/* Post list show animation */
+.post-list-show {
+  animation: post-list-show .5s;
+  -webkit-animation: post-list-show .5s;
+  opacity: 1;
+}
+
+@keyframes post-list-show {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(80px);
+    transform: translateY(80px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* Sticky badge */
+.post-card-sticky {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #E67474;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  z-index: 10;
+}
+
+/* ===== Streaming Display (PostCard images) ===== */
+.img-placeholder,
+.img-main {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-placeholder {
+  z-index: 1;
+  background-color: #f0f0f0;
+  transition: opacity 0.3s ease;
+}
+
+.img-main {
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.img-main.loaded {
+  opacity: 1;
+}
+
+.img-main.loaded ~ .img-placeholder {
+  opacity: 0;
+}
+
+/* ===== Pagination ===== */
+.navigator {
+  text-align: center;
+  margin: 80px 0;
+  display: block;
+}
+
+.navigator a {
+  display: inline-block;
+  height: 39px;
+  line-height: 39px;
+  margin: 20px 0;
+}
+
+.navigator i {
+  font-size: 15px;
+  color: #D8D8D8;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.navigator i:hover {
+  color: #fff;
+  background: orange;
+  border: 2px solid orange;
+  transition: all .2s ease-in-out;
+}
+
+/* ===== Notice Bar ===== */
+.notice {
+  margin-top: 60px;
+  padding: 12px 20px;
+  background: #FFF9E6;
+  border-left: 4px solid #FE9600;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #8a6d3b;
+}
+
+.notice i {
+  margin-right: 8px;
+  color: #FE9600;
+}
+
+.notice-content {
+  display: inline-block;
+}
+
+/* ===== Mobile: undo flex/height for stacked layout ===== */
+@media (max-width: 640px) {
+  .post-list-thumb {
+    float: none;
+  }
+
+  .post-content {
+    display: block;
+    height: auto;
+  }
+
+  .post-content > .float-content {
+    flex: none;
+    display: block;
+  }
+
+  .post-content > .float-content .post-bottom {
+    margin-top: 0;
+  }
+}

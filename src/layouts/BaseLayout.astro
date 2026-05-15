@@ -1,0 +1,70 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SkinSwitcher from '../components/SkinSwitcher.astro';
+import SearchModal from '../components/SearchModal.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import MobileNav from '../components/MobileNav.astro';
+import APlayerContainer from '../components/APlayerContainer.astro';
+import siteData from '../data/site.json';
+import { resolveImage } from '../utils/image';
+
+interface Props {
+  title?: string;
+  description?: string;
+  coverImage?: string;
+  coverClasses?: string;
+  hasToc?: boolean;
+  bodyClass?: string;
+}
+
+const { title, description, coverImage, coverClasses = '', hasToc = false, bodyClass = '' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const defaultCover = siteData.cover?.default_image || 'images/random/d-1.jpg';
+const showCover = !!coverImage;
+const { src: resolvedCoverImage } = resolveImage(coverImage || defaultCover, base, 'images/random/d-1.jpg');
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <ClientRouter />
+    <BaseHead />
+    {title && <title>{title} - {siteData.name}</title>}
+    {!title && <title>{siteData.name} - {siteData.description}</title>}
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body class={bodyClass}>
+    <Header />
+
+    <slot name="hero" />
+
+    {
+      showCover && (
+        <div class={`pattern-center ${coverClasses}`.trim()}>
+          <div class="pattern-attachment-img"
+               style={`background-image: url(${resolvedCoverImage})`}>
+          </div>
+          <slot name="cover-content" />
+        </div>
+      )
+    }
+
+    <div id="content" class="site-content">
+      <slot />
+    </div>
+
+    <Footer />
+    <MobileNav />
+    <ScrollToTop />
+    <SkinSwitcher />
+    <SearchModal />
+    <APlayerContainer />
+
+    <script>
+      import '../scripts/app.js';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+---
+import siteData from '../data/site.json';
+import { withBase } from '../utils/url';
+const base = import.meta.env.BASE_URL;
+
+interface Props {
+  descriptions?: Record<string, string>;
+}
+
+const { descriptions = {} } = Astro.props;
+---
+
+<div class="top-feature">
+  <h1 class="fes-title">
+    <i class="fa fa-anchor" aria-hidden="true"></i> FEATURED
+  </h1>
+  <div class="feature-content">
+    {siteData.featured_posts.map((post, i) => {
+      const imgSrc = post.img?.startsWith('http') ? post.img : base + (post.img || '').replace(/^\//, '');
+      const postLink = withBase(post.link, base);
+      const desc = descriptions[post.link] || '';
+      return (
+      <li class={`feature-${i + 1}`}>
+        <a href={postLink} target="_blank">
+          <img src={imgSrc} alt={post.title} width="800" height="400" loading="eager" />
+          <div class="feature-overlay">
+            <span class="feature-overlay-title">{post.title}</span>
+            {desc && <span class="feature-overlay-desc">{desc}</span>}
+          </div>
+        </a>
+      </li>
+    )})}
+  </div>
+</div>

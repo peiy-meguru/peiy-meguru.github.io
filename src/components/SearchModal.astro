@@ -1,0 +1,17 @@
+---
+import { withBase } from '../utils/url';
+const base = import.meta.env.BASE_URL;
+---
+
+<form class="js-search search-form search-form--modal" method="get" action={withBase('/', base)} role="search">
+  <div class="search_close"></div>
+    <div class="search-form__inner">
+      <div class="micro">
+      <i class="fa fa-search"></i>
+      <input id="search-input" class="text-input" type="search" name="s" placeholder="想要找点什么呢？" required autocomplete="off" />
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container" id="PostlistBox"></div>
+    </div>
+  </div>
+</form>

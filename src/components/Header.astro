@@ -1,0 +1,61 @@
+---
+import siteData from '../data/site.json';
+import { withBase } from '../utils/url';
+const base = import.meta.env.BASE_URL;
+const logoSrc = siteData.logo?.startsWith('http') ? siteData.logo : base + (siteData.logo || '').replace(/^\//, '');
+const coverSrc = siteData.cover.default_image?.startsWith('http') ? siteData.cover.default_image : base + (siteData.cover.default_image || '').replace(/^\//, '');
+const homeUrl = withBase('/', base);
+---
+
+<div class="scrollbar" id="bar"></div>
+
+<section id="main-container">
+  <div style="display:none">
+    <img src={coverSrc} alt="" style="display:none" />
+  </div>
+
+  <div id="page" class="site wrapper">
+    <header class="site-header no-select" role="banner">
+      <div class="site-top">
+        <div class="site-branding">
+          {
+            siteData.logo ? (
+              <div class="site-title">
+                <a href={homeUrl}>
+                  <svg class="site-logo" viewBox="0 0 120 40" aria-label={siteData.name}>
+                    <text x="60" y="20" text-anchor="middle" dominant-baseline="central" font-size="24" fill="#E67474" font-weight="bold">{siteData.name}</text>
+                  </svg>
+                </a>
+              </div>
+            ) : (
+              <span class="site-title">
+                <span class="logolink serif">
+                  <a href={homeUrl}>
+                    <span class="site-name">{siteData.name}</span>
+                  </a>
+                </span>
+              </span>
+            )
+          }
+        </div>
+
+        <div class="lower">
+          <div id="show-nav" class="showNav">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+          </div>
+          <nav>
+            <ul>
+              {siteData.nav_links.map(link => (
+                <li><a href={withBase(link.url, base)}>{link.label}</a></li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div class="searchbox">
+            <i class="fa fa-search js-toggle-search" aria-hidden="true"></i>
+          </div>
+      </div>
+    </header>

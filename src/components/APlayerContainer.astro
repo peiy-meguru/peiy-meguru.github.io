@@ -1,0 +1,49 @@
+---
+import siteData from '../data/site.json';
+---
+
+{
+  siteData.aplayer.enabled && (
+    <>
+      <div class="music-widget" id="music-widget">
+        <div class="music-widget-toggle" id="music-widget-toggle">
+          <div class="music-widget-cover" id="music-widget-cover"></div>
+          <div class="music-widget-arrow">
+            <i class="fa fa-chevron-left"></i>
+          </div>
+        </div>
+        <div class="music-widget-bar" id="music-widget-bar">
+          <button class="music-widget-upcoming-toggle" id="music-btn-upcoming" title="Upcoming">
+            <i class="fa fa-chevron-up"></i>
+          </button>
+          <div class="music-widget-upcoming" id="music-widget-upcoming"></div>
+          <div class="music-widget-bar-bottom">
+            <div class="music-widget-info">
+              <div class="music-widget-title" id="music-widget-title">Not Playing</div>
+              <div class="music-widget-artist" id="music-widget-artist">--</div>
+            </div>
+            <div class="music-widget-volume" id="music-widget-volume">
+              <div class="music-widget-volume-fill" id="music-widget-volume-fill" style="width:70%"></div>
+            </div>
+            <div class="music-widget-controls">
+              <button class="music-widget-btn" id="music-btn-prev" title="Previous">
+                <i class="fa fa-step-backward"></i>
+              </button>
+              <button class="music-widget-btn music-widget-btn-play" id="music-btn-play" title="Play/Pause">
+                <i class="fa fa-play"></i>
+              </button>
+              <button class="music-widget-btn" id="music-btn-next" title="Next">
+                <i class="fa fa-step-forward"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="aplayer-instance" style="display:none;"
+             data-server={siteData.aplayer.server}
+             data-id={siteData.aplayer.playlist_id}
+             data-theme={siteData.aplayer.theme}>
+        </div>
+      </div>
+    </>
+  )
+}

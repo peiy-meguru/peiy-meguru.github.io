@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MusicPlayerComponent from '../components/MusicPlayer.astro';
+import siteData from '../data/site.json';
+---
+
+<style is:inline>
+  #content.site-content { max-width: none; width: 100%; padding: 0; margin: 0; background: transparent; }
+  .site-footer, #gear-top-btn { display: none; }
+</style>
+
+<BaseLayout title={`音乐播放器 - ${siteData.name}`}>
+  <MusicPlayerComponent />
+</BaseLayout>
+
+<script>
+  import { initMusicPlayer } from '../scripts/music-player.js';
+  const sidebarWidget = document.getElementById('music-widget');
+  if (sidebarWidget) sidebarWidget.style.display = 'none';
+  initMusicPlayer();
+</script>

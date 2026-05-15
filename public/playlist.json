@@ -1,0 +1,30 @@
+[
+    {
+        "name": "晴天",
+        "artist": "周杰伦",
+        "url": "https://api.i-meto.com/meting/api?server=netease&type=url&id=186016&auth=539ec88346eee2d7c466894d4fe90599f2117453",
+        "cover": "https://api.i-meto.com/meting/api?server=netease&type=pic&id=109951165566379710&auth=5004e91efae78c5e85e25d3a0009a418bd7ef74e",
+        "lrc": "https://api.i-meto.com/meting/api?server=netease&type=lrc&id=186016&auth=5ea471656b2b889f9ca7a56b19c7620d0103652c"
+    },
+    {
+        "name": "Victory",
+        "artist": "Two Steps From Hell / Thomas Bergersen",
+        "url": "https://api.i-meto.com/meting/api?server=netease&type=url&id=31654455&auth=e4729b7a27a99f62d1f588793ff7bdfc9d3f95e4",
+        "cover": "https://api.i-meto.com/meting/api?server=netease&type=pic&id=109951170179380497&auth=4a75a92cd51c8714b0be06457151314b9ae4bf38",
+        "lrc": "https://api.i-meto.com/meting/api?server=netease&type=lrc&id=31654455&auth=0cd00982498547813f5e0863a6d72df4b7da734a"
+    },
+    {
+        "name": "The Power Of Love",
+        "artist": "张惠妹",
+        "url": "https://api.i-meto.com/meting/api?server=netease&type=url&id=5241524&auth=7087913e656d6ebb7b4837883543698d1f0add7e",
+        "cover": "https://api.i-meto.com/meting/api?server=netease&type=pic&id=925788790587705&auth=23acfbec1795c0fb1038e56fd79b607d9f0a9941",
+        "lrc": "https://api.i-meto.com/meting/api?server=netease&type=lrc&id=5241524&auth=a4d5ac7b564e00146cacdaa4a25e9e099d0fc812"
+    },
+    {
+        "name": "Keep On Loving You",
+        "artist": "Tokyo Square",
+        "url": "https://api.i-meto.com/meting/api?server=netease&type=url&id=28445526&auth=0f687f84b2be78d11a3e4efea1a59cf23df1642e",
+        "cover": "https://api.i-meto.com/meting/api?server=netease&type=pic&id=109951166361039007&auth=234dec1e390e4a2682681f2bc065deec32825a8f",
+        "lrc": "https://api.i-meto.com/meting/api?server=netease&type=lrc&id=28445526&auth=e51a762aa35a6389b0a45c9815c4d1c8b35d1857"
+    }
+]

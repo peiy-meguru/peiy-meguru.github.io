@@ -1,0 +1,561 @@
+/* ===== Music Player Page — full-screen dark immersive ===== */
+
+.mp-page {
+  background: #1a1a1a;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Full-screen blurred background */
+.mp-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1a1a;
+  filter: blur(40px);
+  opacity: 0.55;
+  transform: scale(1.15);
+  transition: background-image 0.8s ease;
+}
+
+.mp-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Main content — two-column full-height, zero gaps */
+.mp-main {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  height: 100vh;
+  padding: 75px 0 0;
+}
+
+/* ===== Left Column: Playlist ===== */
+.mp-left {
+  flex: 0 0 38%;
+  min-width: 320px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 0 32px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mp-playlist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 4px 12px;
+  flex-shrink: 0;
+}
+
+/* Custom dropdown */
+.mp-playlist-dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.mp-playlist-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  /*border: 1px solid rgba(255, 255, 255, 0.2);*/
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.mp-playlist-dropdown-trigger:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mp-playlist-dropdown-trigger i {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s;
+}
+
+.mp-playlist-dropdown.open .mp-playlist-dropdown-trigger {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.mp-playlist-dropdown.open .mp-playlist-dropdown-trigger i {
+  transform: rotate(180deg);
+}
+
+.mp-playlist-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 180px;
+  max-height: 240px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.mp-playlist-dropdown-item {
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #444;
+  transition: background 0.1s, color 0.1s;
+}
+
+.mp-playlist-dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #111;
+}
+
+.mp-playlist-dropdown-item.active {
+  color: #E67474;
+}
+
+body.theme-dark .mp-playlist-dropdown-menu {
+  background: rgba(42, 42, 42, 0.95);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+body.theme-dark .mp-playlist-dropdown-item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.theme-dark .mp-playlist-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+body.theme-dark .mp-playlist-dropdown-item.active {
+  color: #E67474;
+}
+
+.mp-playlist-dropdown.open .mp-playlist-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mp-playlist-dropdown-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mp-playlist-dropdown-menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.mp-playlist-dropdown-item {
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: background 0.1s, color 0.1s;
+}
+
+.mp-playlist-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.mp-playlist-dropdown-item.active {
+  color: #E67474;
+}
+
+.mp-playlist-count {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Song list */
+.mp-playlist {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 24px;
+}
+
+.mp-playlist::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mp-playlist::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.mp-playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-radius: 8px;
+  margin-bottom: 2px;
+}
+
+.mp-playlist-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mp-playlist-item.active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mp-playlist-item .mp-pl-num {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.mp-playlist-item.active .mp-pl-num {
+  color: #E67474;
+  font-weight: 600;
+}
+
+.mp-playlist-item .mp-pl-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mp-playlist-item .mp-pl-name {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mp-playlist-item.active .mp-pl-name {
+  color: #E67474;
+}
+
+.mp-playlist-item .mp-pl-artist {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.mp-playlist-item .mp-pl-playing-icon {
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  color: #E67474;
+  font-size: 12px;
+  display: none;
+}
+
+.mp-playlist-item.active .mp-pl-playing-icon {
+  display: block;
+}
+
+.mp-playlist-item.active .mp-pl-num {
+  display: none;
+}
+
+/* ===== Right Column: Cover + Info + Progress + Controls ===== */
+.mp-right {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 60px 40px;
+  gap: 18px;
+}
+
+.mp-cover-wrap {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.mp-cover-wrap:hover {
+  transform: scale(1.02);
+}
+
+.mp-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #2a2a2a;
+}
+
+/* Song info */
+.mp-info {
+  text-align: center;
+  width: 100%;
+  max-width: 440px;
+}
+
+.mp-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mp-artist {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Progress */
+.mp-progress-wrap {
+  width: 100%;
+  max-width: 440px;
+}
+
+.mp-progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  transition: height 0.15s;
+}
+
+.mp-progress-bar:hover {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.mp-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: #fff;
+  position: relative;
+  transition: width 0.1s linear;
+  min-width: 0;
+}
+
+.mp-time {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 440px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-variant-numeric: tabular-nums;
+  margin-top: -12px;
+}
+
+/* Controls row — replaces old bottom bar */
+.mp-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 440px;
+  margin-top: 4px;
+}
+
+.mp-ctrl-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mp-ctrl-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mp-ctrl-play {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 18px;
+  padding: 0;
+}
+
+.mp-ctrl-play:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.mp-ctrl-spacer {
+  flex: 1;
+  min-width: 12px;
+}
+
+.mp-ctrl-volume {
+  width: 72px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: height 0.15s;
+}
+
+.mp-ctrl-volume:hover {
+  height: 7px;
+}
+
+.mp-ctrl-volume-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  transition: width 0.15s ease;
+}
+
+.mp-ctrl-vol-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  font-variant-numeric: tabular-nums;
+  min-width: 26px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Empty / loading states */
+.mp-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+/* Loading shimmer */
+.mp-skeleton {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  animation: mpShimmer 1.5s infinite;
+}
+
+@keyframes mpShimmer {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .mp-main {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 0 0;
+  }
+
+  .mp-left {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    max-height: 280px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0 20px 12px;
+  }
+
+  .mp-playlist-header {
+    padding-top: 12px;
+  }
+
+  .mp-right {
+    padding: 24px 20px 40px;
+    gap: 14px;
+  }
+
+  .mp-cover-wrap {
+    width: 260px;
+    height: 260px;
+    border-radius: 14px;
+  }
+
+  .mp-title {
+    font-size: 18px;
+  }
+
+  .mp-ctrl-volume {
+    width: 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mp-left {
+    max-height: 220px;
+  }
+
+  .mp-right {
+    padding: 18px 16px 36px;
+  }
+
+  .mp-cover-wrap {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+.mp-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: rgba(255, 255, 255, 0.3);
+}

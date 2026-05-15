@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import siteData from '../../data/site.json';
+import { getCollection, render } from 'astro:content';
+import { withBase } from '../../utils/url';
+import { resolveImage } from '../../utils/image';
+import NextPrevPosts from '../../components/NextPrevPosts.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, cover, category } = post.data;
+const base = import.meta.env.BASE_URL;
+
+const defaultCover = siteData.cover?.default_image || 'images/random/d-1.jpg';
+const { src: fullCoverUrl } = resolveImage(cover || defaultCover, base, defaultCover);
+
+const avatarSrc = siteData.avatar?.startsWith('http')
+  ? siteData.avatar
+  : base + (siteData.avatar || '').replace(/^\//, '');
+const fallbackAvatar = base + 'images/avatars/avatar.png';
+const aboutUrl = withBase('/about', base);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  coverImage={fullCoverUrl}
+  coverClasses="single-center"
+  hasToc
+>
+  <header class="single-header" slot="cover-content">
+    <h1 class="entry-title">{title}</h1>
+    <p class="entry-census">
+      <i class="fa fa-clock-o"></i> {date.toLocaleDateString('zh-CN')}
+      &nbsp;&nbsp;
+      <i class="fa fa-folder-o"></i> <a href={withBase('/archive', base)} class="census-category">{category}</a>
+    </p>
+  </header>
+
+  <article class="post">
+    <div class="entry-content">
+      <Content />
+    </div>
+
+    <footer class="post-footer">
+      <div class="post-lincenses">
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow">
+          <i class="fa fa-creative-commons" aria-hidden="true"></i> Attribution-NonCommercial-ShareAlike 4.0 International
+        </a>
+      </div>
+    </footer>
+  </article>
+
+  <NextPrevPosts currentSlug={post.id} />
+
+  <section class="author-profile">
+    <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <a href={aboutUrl} class="profile gravatar">
+        <img src={avatarSrc} alt={siteData.author} height="70" width="70" onerror={`this.onerror=null;this.src='${fallbackAvatar}'`} />
+      </a>
+      <div class="meta">
+        <span class="title">Author</span>
+        <h3 itemprop="name">
+          <a href={aboutUrl} itemprop="url" rel="author">{siteData.author}</a>
+        </h3>
+      </div>
+    </div>
+    <hr />
+    <p><i class="fa fa-pencil"></i> {siteData.author_description}</p>
+  </section>
+</BaseLayout>

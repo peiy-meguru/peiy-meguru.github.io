@@ -1,0 +1,229 @@
+/* ===== Responsive Breakpoints ===== */
+
+/* Mobile: 640px — hamburger nav */
+@media (max-width: 640px) {
+  .site-main {
+    padding: 15px 0 0;
+  }
+
+  .site-content {
+    max-width: 100%;
+    padding: 0 4%;
+  }
+
+  .site-footer {
+    max-width: 100%;
+    padding: 4% 2%;
+  }
+
+  .openNav {
+    display: block;
+  }
+
+  #mo-nav {
+    display: block;
+  }
+
+  .cd-top {
+    display: none;
+    height: 60px;
+    width: 50px;
+  }
+
+  .cd-top span {
+    height: 10px;
+    width: 50px;
+  }
+
+  #moblieGoTop,
+  #moblieDarkLight {
+    visibility: visible;
+  }
+
+  .post-list-thumb {
+    margin: 10px 0 10px;
+    height: auto;
+  }
+
+  /* Nav becomes dropdown on mobile */
+  .site-top .lower nav {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 100;
+  }
+
+  .site-top .lower nav.navbar {
+    display: block;
+  }
+
+  .site-top ul {
+    display: block;
+  }
+
+  .site-top ul li {
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+
+  .pattern-center header.single-header {
+    padding: 0 4%;
+  }
+
+  .pattern-attachment-img {
+    height: 280px;
+  }
+
+  .pattern-center h1.cat-title,
+  .pattern-center h1.entry-title,
+  .single-center .single-header h1.entry-title {
+    font-size: 26px;
+  }
+
+  /* Mobile card layout: stack vertically */
+  .post-thumb,
+  .post-content-wrap,
+  .float-content {
+    width: 100%;
+    left: 0;
+    float: none;
+  }
+
+  .post-list-thumb .post-content-wrap,
+  .post-list-thumb-left .post-content-wrap {
+    text-align: left;
+    margin: 0;
+    padding: 20px;
+    float: none;
+    box-shadow: none;
+    border-top: 0;
+  }
+
+  .post-thumb a {
+    border-radius: 10px !important;
+    height: 210px;
+  }
+
+  .float-content {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .float-content p {
+    height: auto;
+    display: block;
+  }
+
+  .post-bottom {
+    text-align: right;
+  }
+}
+
+/* Desktop: >640px — full nav, hide mobile nav */
+@media (min-width: 641px) {
+  .openNav {
+    display: none;
+  }
+
+  #mo-nav {
+    display: none;
+  }
+
+  #show-nav {
+    display: none;
+  }
+}
+
+/* Phone: 768px */
+@media (max-width: 768px) {
+  .float-content p {
+    height: auto;
+    display: block;
+  }
+
+  .post-bottom {
+    display: none;
+  }
+
+  .post-list-thumb {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .float-content,
+  .post-content-wrap,
+  .post-thumb {
+    width: 100%;
+    left: 0;
+  }
+
+  .post-list-thumb .post-content-wrap {
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    float: none !important;
+    box-shadow: none;
+    border-top: 0;
+  }
+
+  .post-list-thumb::before {
+    content: '';
+    width: 1px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -101px;
+    z-index: 0;
+  }
+
+  .float-content {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-bottom {
+    text-align: right;
+  }
+
+  .post-thumb a {
+    border-radius: 10px !important;
+  }
+}
+
+/* Small phone: 600px */
+@media (max-width: 600px) {
+  .post-thumb a {
+    height: 210px;
+  }
+
+  .float-content .post-text {
+    font-size: 13px;
+    margin-bottom: 1em;
+  }
+}
+
+/* TOC sidebar hidden below 860px */
+@media (max-width: 860px) {
+  .toc-container {
+    display: none;
+  }
+}
+
+/* Nav: center on tablet/desktop */
+@media (min-width: 641px) and (max-width: 1200px) {
+  .site-top .lower {
+    text-align: center;
+    float: none;
+  }
+}

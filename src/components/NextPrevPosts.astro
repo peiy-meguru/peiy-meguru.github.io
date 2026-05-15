@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import { withBase } from '../utils/url';
+import { resolveImage } from '../utils/image';
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const currentIndex = posts.findIndex(p => p.id === currentSlug);
+const prev = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
+const next = currentIndex > 0 ? posts[currentIndex - 1] : null;
+
+function getCoverUrl(cover: string | undefined): string {
+  const fallbackBase = 'images/random/d-';
+  const randomIdx = Math.floor(Math.random() * 10) + 1;
+  const fallback = `${base}${fallbackBase}${randomIdx}.jpg`;
+  const { src } = resolveImage(cover || fallback, base, fallback);
+  return src;
+}
+---
+
+{prev || next ? (
+<section class="post-squares nextprev">
+  {prev && (
+    <div class={`post-nepre ${next ? 'half' : 'full'} previous`}>
+      <a href={withBase(`/posts/${prev.id}`, base)}>
+        <div
+          class="background"
+          style={`background-image:url(${getCoverUrl(prev.data.cover)})`}
+        ></div>
+        <span class="label">Previous Post</span>
+        <div class="nextprev-content">
+          <h3>{prev.data.title}</h3>
+          <hr />
+        </div>
+      </a>
+    </div>
+  )}
+  {next && (
+    <div class={`post-nepre ${prev ? 'half' : 'full'} next`}>
+      <a href={withBase(`/posts/${next.id}`, base)}>
+        <div
+          class="background"
+          style={`background-image:url(${getCoverUrl(next.data.cover)})`}
+        ></div>
+        <span class="label">Next Post</span>
+        <div class="nextprev-content">
+          <h3>{next.data.title}</h3>
+          <hr />
+        </div>
+      </a>
+    </div>
+  )}
+</section>
+) : null}

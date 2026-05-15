@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import PostCard from '../components/PostCard.astro';
+import FeaturedSection from '../components/FeaturedSection.astro';
+import siteData from '../data/site.json';
+import { getCollection } from 'astro:content';
+import { withBase } from '../utils/url';
+
+const posts = await getCollection('posts', ({ data }) => {
+  return !data.draft;
+});
+
+posts.sort((a, b) => {
+  if (a.data.sticky && !b.data.sticky) return -1;
+  if (!a.data.sticky && b.data.sticky) return 1;
+  return b.data.date.getTime() - a.data.date.getTime();
+});
+const base = import.meta.env.BASE_URL;
+
+const featureDescriptions: Record<string, string> = {};
+siteData.featured_posts.forEach((fp) => {
+  const match = posts.find((p) => `/posts/${p.id}` === fp.link);
+  if (match?.data.description) {
+    featureDescriptions[fp.link] = match.data.description;
+  }
+});
+---
+
+<BaseLayout bodyClass="is-homepage">
+  <HeroSection slot="hero" />
+
+  {
+    siteData.notice.enabled && (
+      <div class="notice">
+        <i class="fa fa-bullhorn"></i>
+        <span class="notice-content">{siteData.notice.text}</span>
+      </div>
+    )
+  }
+
+  <FeaturedSection descriptions={featureDescriptions} />
+
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <h1 class="dsc-title"">
+        <i class="fa fa-anchor" aria-hidden="true"></i> DISCOVERY
+      </h1>
+      {posts.map((post, i) => (
+        <PostCard
+          title={post.data.title}
+          slug={post.id}
+          date={post.data.date.toISOString()}
+          description={post.data.description}
+          cover={post.data.cover}
+          sticky={post.data.sticky}
+          index={i}
+        />
+      ))}
+    </main>
+
+
+  </div>
+</BaseLayout>

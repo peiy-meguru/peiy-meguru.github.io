@@ -1,0 +1,67 @@
+<div class="mp-page" id="music-player-root">
+  <div class="mp-bg" id="mp-bg"></div>
+  <div class="mp-overlay"></div>
+
+  <div class="mp-main" id="mp-main">
+    <div class="mp-left">
+      <div class="mp-playlist-header">
+        <div class="mp-playlist-dropdown" id="mp-playlist-dropdown">
+          <div class="mp-playlist-dropdown-trigger" id="mp-playlist-trigger">
+            <span id="mp-playlist-label">加载中...</span>
+            <i class="fa fa-chevron-down"></i>
+          </div>
+          <div class="mp-playlist-dropdown-menu" id="mp-playlist-menu"></div>
+        </div>
+        <span class="mp-playlist-count" id="mp-playlist-count">0 首</span>
+      </div>
+      <div class="mp-playlist" id="mp-playlist">
+        <div class="mp-empty">加载中...</div>
+      </div>
+    </div>
+
+    <div class="mp-right">
+      <div class="mp-cover-wrap">
+        <img class="mp-cover" id="mp-cover"
+             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Crect fill='%232a2a2a' width='360' height='360'/%3E%3Ctext x='180' y='185' text-anchor='middle' fill='%23555' font-size='18'%3E♪%3C/text%3E%3C/svg%3E"
+             alt="Album Cover" />
+      </div>
+
+      <div class="mp-info">
+        <div class="mp-title" id="mp-title">未在播放</div>
+        <div class="mp-artist" id="mp-artist">选择一首歌曲开始</div>
+      </div>
+
+      <div class="mp-progress-wrap">
+        <div class="mp-progress-bar" id="mp-progress-bar">
+          <div class="mp-progress-fill" id="mp-progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="mp-time">
+        <span id="mp-current-time">00:00</span>
+        <span id="mp-duration">00:00</span>
+      </div>
+
+      <div class="mp-controls">
+        <button class="mp-ctrl-btn" id="mp-btn-prev" title="上一首" aria-label="上一首">
+          <i class="fa fa-step-backward" aria-hidden="true"></i>
+        </button>
+        <button class="mp-ctrl-btn mp-ctrl-play" id="mp-btn-play" title="播放/暂停" aria-label="播放/暂停">
+          <i class="fa fa-play" aria-hidden="true"></i>
+        </button>
+        <button class="mp-ctrl-btn" id="mp-btn-next" title="下一首" aria-label="下一首">
+          <i class="fa fa-step-forward" aria-hidden="true"></i>
+        </button>
+        <span class="mp-ctrl-spacer"></span>
+        <div class="mp-ctrl-volume" id="mp-bar-volume">
+          <div class="mp-ctrl-volume-fill" id="mp-bar-volume-fill" style="width:70%"></div>
+        </div>
+        <span class="mp-ctrl-vol-label" id="mp-vol-label">70</span>
+        <button class="mp-ctrl-btn" id="mp-btn-mode" title="播放模式" aria-label="播放模式">
+          <i class="fa fa-retweet" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mp-aplayer" style="display:none"></div>
+</div>

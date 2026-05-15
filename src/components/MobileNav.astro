@@ -1,0 +1,24 @@
+---
+import siteData from '../data/site.json';
+import { withBase } from '../utils/url';
+const base = import.meta.env.BASE_URL;
+const avatarSrc = (siteData.avatar || '/images/avatars/avatar.png').startsWith('http')
+  ? (siteData.avatar || '/images/avatars/avatar.png')
+  : base + (siteData.avatar || '/images/avatars/avatar.png').replace(/^\//, '');
+---
+
+<div id="mo-nav">
+  <div class="m-avatar">
+    <img src={avatarSrc} alt="avatar" />
+  </div>
+  <div class="m-search">
+    <form class="m-search-form" method="get" action={withBase('/', base)} role="search">
+      <input class="m-search-input" type="search" name="s" placeholder="Search..." required />
+    </form>
+  </div>
+  <ul>
+    {siteData.nav_links.map(link => (
+      <li><a href={withBase(link.url, base)}>{link.label}</a></li>
+    ))}
+  </ul>
+</div>

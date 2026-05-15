@@ -1,0 +1,30 @@
+/* ===== Background Themes ===== */
+
+/* White (default) */
+body.bg-white {
+  background-image: none;
+}
+
+/* Pure CSS grid pattern */
+body.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+}
+
+/* Slideshow — image cycled via JS */
+body.bg-slideshow {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Dark mode grid: lighter lines */
+body.theme-dark.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}

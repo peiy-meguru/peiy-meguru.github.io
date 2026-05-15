@@ -1,0 +1,76 @@
+{
+  "name": "NoteBook",
+  "description": "Tech, Life and Everything in Between",
+  "author": "Meguru",
+  "author_description": "",
+  "language": "zh-CN",
+  "logo": "/images/brand/logo.png",
+  "avatar": "/images/avatars/avatar.png",
+  "favicon": "/favicon.ico",
+  "footer_info": "Copyright © 2026 Peiy-Meguru. All Rights Reserved.",
+  "theme_skin": "#E67474",
+  "nav_links": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "Archive",
+      "url": "/archive"
+    },
+    {
+      "label": "Player",
+      "url": "/music-player"
+    },
+    {
+      "label": "Links",
+      "url": "/links"
+    },
+    {
+      "label": "About",
+      "url": "/about"
+    }
+  ],
+  "social": {
+    "github": "https://github.com/peiy-meguru",
+    "qq": "",
+    "weibo": ""
+  },
+  "featured_posts": [
+    {
+      "title": "Feature 1",
+      "link": "/posts/hello-world",
+      "img": "/images/random/d-1.jpg"
+    },
+    {
+      "title": "Feature 2",
+      "link": "/posts/sample-post",
+      "img": "/images/random/d-2.jpg"
+    },
+    {
+      "title": "Feature 3",
+      "link": "/posts/markdown-style-guide",
+      "img": "/images/random/d-3.jpg"
+    }
+  ],
+  "aplayer": {
+    "enabled": true,
+    "server": "netease",
+    "playlist_id": "60198",
+    "fixed": true,
+    "theme": "#E67474"
+  },
+  "dark_mode": {
+    "enabled": true,
+    "auto_start": 22,
+    "auto_end": 7
+  },
+  "notice": {
+    "enabled": true,
+    "text": "施工中……"
+  },
+  "cover": {
+    "enabled": true,
+    "default_image": "/images/random/d-1.jpg"
+  }
+}

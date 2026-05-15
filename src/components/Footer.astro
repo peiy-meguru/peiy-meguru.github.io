@@ -1,0 +1,37 @@
+---
+import siteData from '../data/site.json';
+import { withBase } from '../utils/url';
+const base = import.meta.env.BASE_URL;
+const logoSrc = siteData.logo?.startsWith('http') ? siteData.logo : base + (siteData.logo || '').replace(/^\//, '');
+const homeUrl = withBase('/', base);
+---
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <p style="color: #666666;">{siteData.footer_info}</p>
+    </div>
+    <div class="footer-device">
+      <p>
+        <span style="color: #b9b9b9;">
+          Theme <a href="https://2heng.xin/theme-sakura/" target="_blank" style="color: #b9b9b9; text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+          <i class="fa fa-heart rotating" style="color: #ffc0cb; display:inline-block;"></i>
+          by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9; text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<div class="openNav no-select">
+  <div class="iconflat no-select">
+    <div class="icon"></div>
+  </div>
+  <div class="site-branding">
+    {siteData.logo ? (
+      <div class="site-title"><a href={homeUrl}><img src={logoSrc} alt={siteData.name} /></a></div>
+    ) : (
+      <h1 class="site-title"><a href={homeUrl}>{siteData.name}</a></h1>
+    )}
+  </div>
+</div>
