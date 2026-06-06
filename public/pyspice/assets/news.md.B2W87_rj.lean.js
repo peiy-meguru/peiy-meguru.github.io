@@ -1,0 +1,1 @@
+import{_ as l,o as e,c as a,a2 as o}from"./chunks/framework.DSQXGnvq.js";const p=JSON.parse('{"title":"版本日志","description":"","frontmatter":{},"headers":[],"relativePath":"news.md","filePath":"news.md"}'),t={name:"news.md"};function r(n,i,c,d,s,h){return e(),a("div",null,[...i[0]||(i[0]=[o("",31)])])}const P=l(t,[["render",r]]);export{p as __pageData,P as default};

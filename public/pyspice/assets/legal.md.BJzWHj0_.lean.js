@@ -1,0 +1,1 @@
+import{_ as e,o as r,c as t,a2 as l}from"./chunks/framework.DSQXGnvq.js";const f=JSON.parse('{"title":"法律声明","description":"","frontmatter":{},"headers":[],"relativePath":"legal.md","filePath":"legal.md"}'),o={name:"legal.md"};function i(n,a,s,h,c,p){return r(),t("div",null,[...a[0]||(a[0]=[l("",17)])])}const _=e(o,[["render",i]]);export{f as __pageData,_ as default};
