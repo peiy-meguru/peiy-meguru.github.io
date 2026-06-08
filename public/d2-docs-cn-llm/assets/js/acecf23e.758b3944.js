@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([["7627"],{47548:function(s){s.exports=JSON.parse('{"blogBasePath":"/d2-docs-cn-llm/blog","blogTitle":"D2 Blog","authorsListPath":"/d2-docs-cn-llm/blog/authors"}')}}]);
