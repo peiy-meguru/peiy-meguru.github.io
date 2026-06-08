@@ -1,1 +1,0 @@
-import{_ as a,o as t,c as r,a2 as o}from"./chunks/framework.DSQXGnvq.js";const m=JSON.parse('{"title":"如何进一步帮助？","description":"","frontmatter":{},"headers":[],"relativePath":"donate.md","filePath":"donate.md"}'),p={name:"donate.md"};function n(i,e,s,l,c,_){return t(),r("div",null,[...e[0]||(e[0]=[o("",8)])])}const f=a(p,[["render",n]]);export{m as __pageData,f as default};

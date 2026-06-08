@@ -1,1 +1,0 @@
-import{_ as i,o as a,c as e,a2 as t}from"./chunks/framework.DSQXGnvq.js";const o=JSON.parse('{"title":"常见问题","description":"","frontmatter":{},"headers":[],"relativePath":"faq.md","filePath":"faq.md"}'),p={name:"faq.md"};function h(n,s,l,r,c,d){return a(),e("div",null,[...s[0]||(s[0]=[t("",57)])])}const g=i(p,[["render",h]]);export{o as __pageData,g as default};
