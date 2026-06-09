@@ -1,0 +1,321 @@
+<!doctype html><html lang=zh-cn dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.1"><title data-rh=true>D2 文档站修复 — 实施计划 | D2 Documentation</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true property=og:image content=https://peiy-meguru.github.io/d2lang/zh-cn/img/opengraph.png /><meta data-rh=true name=twitter:image content=https://peiy-meguru.github.io/d2lang/zh-cn/img/opengraph.png /><meta data-rh=true property=og:url content=https://peiy-meguru.github.io/d2lang/zh-cn/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ /><meta data-rh=true property=og:locale content=zh_cn /><meta data-rh=true property=og:locale:alternate content=en /><meta data-rh=true property=og:locale:alternate content=ko /><meta data-rh=true name=docusaurus_locale content=zh-cn /><meta data-rh=true name=docsearch:language content=zh-cn /><meta data-rh=true name=keywords content="diagrams, software architecture, text to diagram, graphviz alternative, mermaidjs alternative, plantuml alternative, d2 language, d2lang, sequence diagrams, flowcharts"/><meta data-rh=true name=author content=Terrastruct /><meta data-rh=true property=og:type content=website /><meta data-rh=true property=og:site_name content="D2 Documentation"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true name=twitter:site content=@terrastruct /><meta data-rh=true name=twitter:creator content=@terrastruct /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="D2 文档站修复 — 实施计划 | D2 Documentation"/><meta data-rh=true name=description content="For agentic workers Use superpowersexecuting-plans to implement this plan task-by-task. Steps use checkbox (- [ ]) syntax for tracking."/><meta data-rh=true property=og:description content="For agentic workers Use superpowersexecuting-plans to implement this plan task-by-task. Steps use checkbox (- [ ]) syntax for tracking."/><link data-rh=true rel=icon href=/d2lang/zh-cn/img/favicon.ico /><link data-rh=true rel=canonical href=https://peiy-meguru.github.io/d2lang/zh-cn/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ /><link data-rh=true rel=alternate href=https://peiy-meguru.github.io/d2lang/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ hreflang=en /><link data-rh=true rel=alternate href=https://peiy-meguru.github.io/d2lang/ko/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ hreflang=ko /><link data-rh=true rel=alternate href=https://peiy-meguru.github.io/d2lang/zh-cn/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ hreflang=zh-cn /><link data-rh=true rel=alternate href=https://peiy-meguru.github.io/d2lang/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ hreflang=x-default /><link data-rh=true rel=preconnect href=https://DWAXJIMTZU-dsn.algolia.net crossorigin=anonymous /><link rel=alternate type=application/rss+xml href=/d2lang/zh-cn/blog/rss.xml title="D2 Blog Feed RSS Feed"><link rel=alternate type=application/atom+xml href=/d2lang/zh-cn/blog/atom.xml title="D2 Blog Feed Atom Feed"><link rel=alternate type=application/json href=/d2lang/zh-cn/blog/feed.json title="D2 Blog Feed JSON Feed"><link rel=search type=application/opensearchdescription+xml title="D2 Documentation" href=/d2lang/zh-cn/opensearch.xml><script type=application/ld+json>{"@context":"https://schema.org/","@type":"SoftwareApplication","applicationCategory":"DeveloperApplication","author":{"@type":"Organization","name":"Terrastruct","url":"https://terrastruct.com"},"description":"A modern DSL that turns text to diagrams","name":"D2","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"Cross-platform","sameAs":["https://github.com/terrastruct/d2","https://discord.com/invite/pbUXgvmTpU"],"url":"https://d2lang.com"}</script><link rel=manifest href=/manifest.json><link rel=preconnect href=https://DWAXJIMTZU-dsn.algolia.net><script src=https://d2lang.com/js/script.js defer data-domain=d2lang.com></script><link rel=stylesheet href=/d2lang/zh-cn/assets/css/styles.b0278dc2.css /><script src=/d2lang/zh-cn/assets/js/runtime~main.2454e5d6.js defer></script><script src=/d2lang/zh-cn/assets/js/main.991c2d1c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t;document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/d2lang/zh-cn/><div class=navbar__logo><img src=/d2lang/zh-cn/img/logo.png alt=D2 class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/d2lang/zh-cn/img/logo_dark.png alt=D2 class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div></a><a class="navbar__item navbar__link" href=/d2lang/zh-cn/tour/intro/>Tour</a><a class="navbar__item navbar__link" href=/d2lang/zh-cn/blog/>Blog</a><a class="navbar__item navbar__link" href=/d2lang/zh-cn/examples/overview/>Examples</a><a class="navbar__item navbar__link" href=/d2lang/zh-cn/releases/intro/>Releases</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://play.d2lang.com target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href=# aria-haspopup=true aria-expanded=false role=button class=navbar__link><svg viewBox="0 0 24 24" width=20 height=20 aria-hidden=true class=iconLanguage_nlXk><path fill=currentColor d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>简体中文</a><ul class=dropdown__menu><li><a href=/d2lang/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ target=_self rel="noopener noreferrer" class=dropdown__link lang=en>English</a><li><a href=/d2lang/ko/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ target=_self rel="noopener noreferrer" class=dropdown__link lang=ko>Korean (한국어)</a><li><a href=/d2lang/zh-cn/superpowers/plans/2026-06-09-d2lang-zh-cn-translation-plan/ target=_self rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang=zh-cn>简体中文</a></ul></div><a type=custom-iconLink position=right class="icon-link navbar__item" href=https://github.com/terrastruct/d2 target=_blank><img src=/d2lang/zh-cn/logos/github.svg alt="github logo"/></a><a type=custom-iconLink position=right class="icon-link navbar__item" href=https://discord.com/invite/pbUXgvmTpU target=_blank><img src=/d2lang/zh-cn/logos/discord.svg alt="discord logo"/></a><div class=navbarSearchContainer_Bca1><button type=button class="DocSearch DocSearch-Button" aria-label="搜索 (Meta+k)" aria-keyshortcuts=Meta+k><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 24 24" aria-hidden=true><circle cx=11 cy=11 r=8 stroke=currentColor fill=none stroke-width=1.4 /><path d="m21 21-4.3-4.3" stroke=currentColor fill=none stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>搜索</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_p7nN">Contents</button></div><div class="theme-doc-markdown markdown"><header><h1>D2 文档站修复 — 实施计划</h1></header>
+<blockquote>
+<p><strong>For agentic workers:</strong> REQUIRED SUB-SKILL: Use superpowers<!-- -->:subagent-driven-development<!-- --> (recommended) or superpowers<!-- -->:executing-plans<!-- --> to implement this plan task-by-task. Steps use checkbox (<code>- [ ]</code>) syntax for tracking.</p>
+</blockquote>
+<p><strong>Goal:</strong> 修复 d2lang-cn 文档站的 locale 配置、硬编码资源路径、以及重新翻译 63 篇中文文档</p>
+<p><strong>Architecture:</strong> Fork 方案。保持 <code>docs/tour/</code> 为英文源（与上游 terrastruct/d2-docs 同步），<code>defaultLocale</code> 改为 <code>"en"</code>，翻译写入 <code>i18n/zh-cn/</code>。翻译按侧边栏顺序分 10 组并行执行。</p>
+<p><strong>Tech Stack:</strong> Docusaurus 3 + i18n, Markdown, subagent-driven translation</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=文件结构>文件结构<a href=#文件结构 class=hash-link aria-label=文件结构的直接链接 title=文件结构的直接链接 translate=no>​</a></h2>
+<table><thead><tr><th>路径<th>角色<th>操作<tbody><tr><td><code>docusaurus.config.ts</code><td>站点配置<td>修改 <code>defaultLocale</code> 为 <code>"en"</code><tr><td><code>src/pages/index.js</code><td>首页组件<td>修复 2 处硬编码 img src<tr><td><code>src/theme/Footer/index.js</code><td>页脚组件<td>修复 2 处硬编码 img src，添加 <code>useBaseUrl</code> 导入<tr><td><code>docs/tour/*.md</code><td>英文源文件（63 篇）<td>不修改<tr><td><code>i18n/zh-cn/docusaurus-plugin-content-docs/current/tour/*.md</code><td>简体中文翻译（63 篇）<td>覆盖重写</table>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-1-修复-defaultlocale-配置>Task 1: 修复 defaultLocale 配置<a href=#task-1-修复-defaultlocale-配置 class=hash-link aria-label="Task 1: 修复 defaultLocale 配置的直接链接" title="Task 1: 修复 defaultLocale 配置的直接链接" translate=no>​</a></h3>
+<p><strong>Files:</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="">
+<p>Modify: <code>docusaurus.config.ts:67</code></p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <strong>Step 1: 将 defaultLocale 从 "zh-cn" 改为 "en"</strong></p>
+</li>
+</ul>
+<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 2: 验证修改正确</strong></li>
+</ul>
+<p>查看 <code>docusaurus.config.ts:67</code>，确认 <code>defaultLocale: "en"</code>。</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 3: 提交</strong></li>
+</ul>
+<!-- -->
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-2-修复首页资源路径>Task 2: 修复首页资源路径<a href=#task-2-修复首页资源路径 class=hash-link aria-label="Task 2: 修复首页资源路径的直接链接" title="Task 2: 修复首页资源路径的直接链接" translate=no>​</a></h3>
+<p><strong>Files:</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="">
+<p>Modify: <code>src/pages/index.js:24-32</code></p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <strong>Step 1: 将首页两处硬编码 img src 改为 useBaseUrl 调用</strong></p>
+</li>
+</ul>
+<!-- -->
+<p>注意：<code>useBaseUrl</code> 已在 <code>src/pages/index.js:3</code> 导入：</p>
+<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 2: 提交</strong></li>
+</ul>
+<!-- -->
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-3-修复页脚资源路径>Task 3: 修复页脚资源路径<a href=#task-3-修复页脚资源路径 class=hash-link aria-label="Task 3: 修复页脚资源路径的直接链接" title="Task 3: 修复页脚资源路径的直接链接" translate=no>​</a></h3>
+<p><strong>Files:</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="">
+<p>Modify: <code>src/theme/Footer/index.js</code></p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <strong>Step 1: 添加 useBaseUrl 导入</strong></p>
+</li>
+</ul>
+<p>在文件顶部 imports 区域添加：</p>
+<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 2: 将页脚两处硬编码 img src 改为 useBaseUrl 调用</strong></li>
+</ul>
+<!-- -->
+<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 3: 提交</strong></li>
+</ul>
+<!-- -->
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-4-翻译-group-1--introduction>Task 4: 翻译 Group 1 — Introduction<a href=#task-4-翻译-group-1--introduction class=hash-link aria-label="Task 4: 翻译 Group 1 — Introduction的直接链接" title="Task 4: 翻译 Group 1 — Introduction的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/intro.md</code>, <code>docs/tour/experience.md</code>, <code>docs/tour/design.md</code>, <code>docs/tour/community.md</code>, <code>docs/tour/future.md</code></p>
+<p><strong>Target paths (under <code>i18n/zh-cn/docusaurus-plugin-content-docs/current/tour/</code>):</strong></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="">
+<p><code>intro.md</code>, <code>experience.md</code>, <code>design.md</code>, <code>community.md</code>, <code>future.md</code></p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <strong>Step 1: 读取 5 个英文源文件</strong></p>
+</li>
+</ul>
+<p>读取 <code>docs/tour/intro.md</code>、<code>docs/tour/experience.md</code>、<code>docs/tour/design.md</code>、<code>docs/tour/community.md</code>、<code>docs/tour/future.md</code> 的内容。</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 2: 启动 subagent 翻译 Group 1</strong></li>
+</ul>
+<p>Subagent 指令：</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="">
+<p>正文全部翻译为简体中文</p>
+</li>
+<li class="">
+<p>专有名词/代码变量：保留英文原名，紧跟括号加中文翻译，如 <code>x（变量）</code>、<code>shape（形状）</code>、<code>layout（布局）</code></p>
+</li>
+<li class="">
+<p>PostgreSQL、AWS 等与 D2 语言无直接关联的产品名/服务名，保留英文不译</p>
+</li>
+<li class="">
+<p>代码块不修改，只翻译已有的英文注释</p>
+</li>
+<li class="">
+<p>保留 markdown 结构、URL、锚点、frontmatter</p>
+</li>
+<li class="">
+<p>返回 <code>{filename: translated_content}</code> 映射</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <strong>Step 3: 将译文写入目标目录</strong></p>
+</li>
+</ul>
+<p>确认目标目录存在后，写入 5 个文件。</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 4: 随机抽查 1 篇验证规范执行</strong></li>
+</ul>
+<p>对照英文原文，检查：</p>
+<ul>
+<li class="">括号翻译格式是否正确</li>
+<li class="">代码块是否未被修改</li>
+<li class="">PostgreSQL/AWS 等是否未翻译</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-5-翻译-group-2--getting-started>Task 5: 翻译 Group 2 — Getting Started<a href=#task-5-翻译-group-2--getting-started class=hash-link aria-label="Task 5: 翻译 Group 2 — Getting Started的直接链接" title="Task 5: 翻译 Group 2 — Getting Started的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/install.md</code>, <code>docs/tour/hello-world.md</code>, <code>docs/tour/shapes.md</code>, <code>docs/tour/connections.md</code>, <code>docs/tour/containers.md</code></p>
+<p><strong>Target paths:</strong> <code>install.md</code>, <code>hello-world.md</code>, <code>shapes.md</code>, <code>connections.md</code>, <code>containers.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 5 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <strong>Step 2: 启动 subagent 翻译 Group 2</strong></p>
+</li>
+</ul>
+<p>翻译规范同 Task 4。</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 将译文写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 随机抽查 1 篇验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-6-翻译-group-3--special-objects>Task 6: 翻译 Group 3 — Special Objects<a href=#task-6-翻译-group-3--special-objects class=hash-link aria-label="Task 6: 翻译 Group 3 — Special Objects的直接链接" title="Task 6: 翻译 Group 3 — Special Objects的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/text.md</code>, <code>docs/tour/icons.md</code>, <code>docs/tour/sql-tables.md</code>, <code>docs/tour/uml-classes.md</code>, <code>docs/tour/sequence-diagrams.md</code>, <code>docs/tour/grid-diagrams.md</code></p>
+<p><strong>Target paths:</strong> <code>text.md</code>, <code>icons.md</code>, <code>sql-tables.md</code>, <code>uml-classes.md</code>, <code>sequence-diagrams.md</code>, <code>grid-diagrams.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 6 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 2: 启动 subagent 翻译 Group 3</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 抽查验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-7-翻译-group-4--customization>Task 7: 翻译 Group 4 — Customization<a href=#task-7-翻译-group-4--customization class=hash-link aria-label="Task 7: 翻译 Group 4 — Customization的直接链接" title="Task 7: 翻译 Group 4 — Customization的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/themes.md</code>, <code>docs/tour/style.md</code>, <code>docs/tour/classes.md</code>, <code>docs/tour/dimensions.md</code>, <code>docs/tour/positions.md</code>, <code>docs/tour/sketch.md</code>, <code>docs/tour/interactive.md</code>, <code>docs/tour/fonts.md</code></p>
+<p><strong>Target paths:</strong> <code>themes.md</code>, <code>style.md</code>, <code>classes.md</code>, <code>dimensions.md</code>, <code>positions.md</code>, <code>sketch.md</code>, <code>interactive.md</code>, <code>fonts.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 8 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 2: 启动 subagent 翻译 Group 4</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 抽查验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-8-翻译-group-5--layouts>Task 8: 翻译 Group 5 — Layouts<a href=#task-8-翻译-group-5--layouts class=hash-link aria-label="Task 8: 翻译 Group 5 — Layouts的直接链接" title="Task 8: 翻译 Group 5 — Layouts的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/layouts.md</code>, <code>docs/tour/dagre.md</code>, <code>docs/tour/elk.md</code>, <code>docs/tour/tala.md</code></p>
+<p><strong>Target paths:</strong> <code>layouts.md</code>, <code>dagre.md</code>, <code>elk.md</code>, <code>tala.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 4 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 2: 启动 subagent 翻译 Group 5</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 抽查验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-9-翻译-group-6--in-depth>Task 9: 翻译 Group 6 — In Depth<a href=#task-9-翻译-group-6--in-depth class=hash-link aria-label="Task 9: 翻译 Group 6 — In Depth的直接链接" title="Task 9: 翻译 Group 6 — In Depth的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/strings.md</code>, <code>docs/tour/vars.md</code>, <code>docs/tour/globs.md</code>, <code>docs/tour/comments.md</code>, <code>docs/tour/overrides.md</code>, <code>docs/tour/models.md</code>, <code>docs/tour/legend.md</code>, <code>docs/tour/auto-formatter.md</code></p>
+<p><strong>Target paths:</strong> <code>strings.md</code>, <code>vars.md</code>, <code>globs.md</code>, <code>comments.md</code>, <code>overrides.md</code>, <code>models.md</code>, <code>legend.md</code>, <code>auto-formatter.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 8 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 2: 启动 subagent 翻译 Group 6</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 抽查验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-10-翻译-group-7--composition>Task 10: 翻译 Group 7 — Composition<a href=#task-10-翻译-group-7--composition class=hash-link aria-label="Task 10: 翻译 Group 7 — Composition的直接链接" title="Task 10: 翻译 Group 7 — Composition的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/composition.md</code>, <code>docs/tour/layers.md</code>, <code>docs/tour/scenarios.md</code>, <code>docs/tour/steps.md</code>, <code>docs/tour/linking.md</code>, <code>docs/tour/composition-formats.md</code></p>
+<p><strong>Target paths:</strong> <code>composition.md</code>, <code>layers.md</code>, <code>scenarios.md</code>, <code>steps.md</code>, <code>linking.md</code>, <code>composition-formats.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 6 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 2: 启动 subagent 翻译 Group 7</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 抽查验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-11-翻译-group-8--imports>Task 11: 翻译 Group 8 — Imports<a href=#task-11-翻译-group-8--imports class=hash-link aria-label="Task 11: 翻译 Group 8 — Imports的直接链接" title="Task 11: 翻译 Group 8 — Imports的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/imports.md</code>, <code>docs/tour/imports-use-cases.md</code>, <code>docs/tour/model-view.md</code>, <code>docs/tour/modular-classes.md</code>, <code>docs/tour/nested-composition.md</code>, <code>docs/tour/version-visualization.md</code>, <code>docs/tour/imported-template.md</code></p>
+<p><strong>Target paths:</strong> <code>imports.md</code>, <code>imports-use-cases.md</code>, <code>model-view.md</code>, <code>modular-classes.md</code>, <code>nested-composition.md</code>, <code>version-visualization.md</code>, <code>imported-template.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 7 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 2: 启动 subagent 翻译 Group 8</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 抽查验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-12-翻译-group-9--extensions>Task 12: 翻译 Group 9 — Extensions<a href=#task-12-翻译-group-9--extensions class=hash-link aria-label="Task 12: 翻译 Group 9 — Extensions的直接链接" title="Task 12: 翻译 Group 9 — Extensions的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/extensions.md</code>, <code>docs/tour/vscode.md</code>, <code>docs/tour/vim.md</code>, <code>docs/tour/obsidian.md</code>, <code>docs/tour/slack.md</code>, <code>docs/tour/discord.md</code></p>
+<p><strong>Target paths:</strong> <code>extensions.md</code>, <code>vscode.md</code>, <code>vim.md</code>, <code>obsidian.md</code>, <code>slack.md</code>, <code>discord.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 6 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 2: 启动 subagent 翻译 Group 9</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 抽查验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-13-翻译-group-10--末尾独立页面>Task 13: 翻译 Group 10 — 末尾独立页面<a href=#task-13-翻译-group-10--末尾独立页面 class=hash-link aria-label="Task 13: 翻译 Group 10 — 末尾独立页面的直接链接" title="Task 13: 翻译 Group 10 — 末尾独立页面的直接链接" translate=no>​</a></h3>
+<p><strong>Source files:</strong> <code>docs/tour/man.md</code>, <code>docs/tour/exports.md</code>, <code>docs/tour/cheat-sheet.md</code>, <code>docs/tour/faq.md</code>, <code>docs/tour/troubleshoot.md</code>, <code>docs/tour/help.md</code></p>
+<p><strong>Target paths:</strong> <code>man.md</code>, <code>exports.md</code>, <code>cheat-sheet.md</code>, <code>faq.md</code>, <code>troubleshoot.md</code>, <code>help.md</code></p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 1: 读取 6 个英文源文件内容</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 2: 启动 subagent 翻译 Group 10</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 3: 写入目标目录</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <!-- -->**Step 4: 抽查验证</p>
+</li>
+</ul>
+<hr/>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=task-14-最终验证>Task 14: 最终验证<a href=#task-14-最终验证 class=hash-link aria-label="Task 14: 最终验证的直接链接" title="Task 14: 最终验证的直接链接" translate=no>​</a></h3>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 1: 确认文件数量一致</strong></li>
+</ul>
+<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 2: 确认存在的翻译无法访问</strong></li>
+</ul>
+<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class=task-list-item><input type=checkbox disabled/> <strong>Step 3: 启动 Docusaurus 预览验证</strong></li>
+</ul>
+<!-- -->
+<p>手动检查：</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="">
+<p>根路径 <code>/</code> 显示英文</p>
+</li>
+<li class="">
+<p>访问 <code>/zh-cn/tour/intro/</code> 显示中文</p>
+</li>
+<li class="">
+<p>首页图片正常加载</p>
+</li>
+<li class="">
+<p>locale dropdown 有 English / 简体中文 两个选项</p>
+</li>
+<li class=task-list-item>
+<p><input type=checkbox disabled/> <strong>Step 4: 提交所有改动</strong></p>
+</li>
+</ul>
+</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡></nav></div></div><div class="col col--3"><div class="tableOfContents_jeP5 thin-scrollbar theme-doc-toc-desktop"><div class=tableOfContentsHeader_UMah>Contents</div><ul class="table-of-contents table-of-contents__left-border"><li><a href=#文件结构 class="table-of-contents__link toc-highlight">文件结构</a><ul><li><a href=#task-1-修复-defaultlocale-配置 class="table-of-contents__link toc-highlight">Task 1: 修复 defaultLocale 配置</a><li><a href=#task-2-修复首页资源路径 class="table-of-contents__link toc-highlight">Task 2: 修复首页资源路径</a><li><a href=#task-3-修复页脚资源路径 class="table-of-contents__link toc-highlight">Task 3: 修复页脚资源路径</a><li><a href=#task-4-翻译-group-1--introduction class="table-of-contents__link toc-highlight">Task 4: 翻译 Group 1 — Introduction</a><li><a href=#task-5-翻译-group-2--getting-started class="table-of-contents__link toc-highlight">Task 5: 翻译 Group 2 — Getting Started</a><li><a href=#task-6-翻译-group-3--special-objects class="table-of-contents__link toc-highlight">Task 6: 翻译 Group 3 — Special Objects</a><li><a href=#task-7-翻译-group-4--customization class="table-of-contents__link toc-highlight">Task 7: 翻译 Group 4 — Customization</a><li><a href=#task-8-翻译-group-5--layouts class="table-of-contents__link toc-highlight">Task 8: 翻译 Group 5 — Layouts</a><li><a href=#task-9-翻译-group-6--in-depth class="table-of-contents__link toc-highlight">Task 9: 翻译 Group 6 — In Depth</a><li><a href=#task-10-翻译-group-7--composition class="table-of-contents__link toc-highlight">Task 10: 翻译 Group 7 — Composition</a><li><a href=#task-11-翻译-group-8--imports class="table-of-contents__link toc-highlight">Task 11: 翻译 Group 8 — Imports</a><li><a href=#task-12-翻译-group-9--extensions class="table-of-contents__link toc-highlight">Task 12: 翻译 Group 9 — Extensions</a><li><a href=#task-13-翻译-group-10--末尾独立页面 class="table-of-contents__link toc-highlight">Task 13: 翻译 Group 10 — 末尾独立页面</a><li><a href=#task-14-最终验证 class="table-of-contents__link toc-highlight">Task 14: 最终验证</a></ul></ul></div></div></div></div></main></div></div></div><footer class=Footer><div class=Footer--Top><img class=Footer__Logo src=/d2lang/zh-cn/img/d2_logo.png alt="D2 logo"/><div class=Footer__Mobile><div class=Footer__Mobile--Icons><a type=custom-iconLink position=right class="icon-link navbar__item" href=https://github.com/terrastruct/d2 target=_blank><img src=/d2lang/zh-cn/logos/github.svg alt="github logo"/></a><a type=custom-iconLink position=right class="icon-link navbar__item" href=https://discord.com/invite/pbUXgvmTpU target=_blank><img src=/d2lang/zh-cn/logos/discord.svg alt="discord logo"/></a></div></div></div><div class=Footer__Right><a class=Footer__Link href=https://terrastruct.com><span>Created by <img src=/d2lang/zh-cn/img/terrastruct_logo.svg alt="Terrastruct logo"/></span></a>|<span>© 2025 Terrastruct, Inc.</span></div><div class=Footer__Mobile><div class=Footer__Mobile--Bar><div class=Footer__Mobile--Bottom><div class=Footer__Mobile--Links><a class="navbar__item navbar__link" href=/d2lang/zh-cn/tour/intro/>Tour</a><a class="navbar__item navbar__link" href=/d2lang/zh-cn/blog/>Blog</a><a class="navbar__item navbar__link" href=/d2lang/zh-cn/examples/overview/>Examples</a><a class="navbar__item navbar__link" href=/d2lang/zh-cn/releases/intro/>Releases</a></div><a href=https://play.d2lang.com target=_blank rel="noopener noreferrer" class="navbar__item navbar__link Footer__Mobile--Playground">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div></div></div></footer></div></body>

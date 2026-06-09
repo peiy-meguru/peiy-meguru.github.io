@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([["6679"],{77666:function(t){t.exports=JSON.parse('{"metadata":{"permalink":"/d2lang/ko/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":6,"blogDescription":"Latest news, updates, and tutorials about D2 - the modern text-to-diagram language","blogTitle":"D2 Blog"}}')}}]);
